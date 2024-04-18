@@ -1,6 +1,13 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/utils/supabase/middleware";
 
+const routes = [
+  '/notes',
+  '/password',
+  '/products',
+  '/productsII'
+];
+
 export async function middleware(request: NextRequest) {
   try {
     // This `try/catch` block is only here for the interactive tutorial.
@@ -9,7 +16,17 @@ export async function middleware(request: NextRequest) {
 
     // Refresh session if expired - required for Server Components
     // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-session-with-middleware
-    await supabase.auth.getSession();
+    const {data: {session}} = await supabase.auth.getSession();
+    console.log(request.nextUrl);
+
+    
+    if(!session && routes.includes(request.nextUrl.pathname)){
+      console.log("REDIRECCION");
+
+      const url = request.nextUrl.clone();
+      url.pathname = "/login";
+      return NextResponse.redirect(url);
+    }
 
     return response;
   } catch (e) {
