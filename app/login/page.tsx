@@ -107,6 +107,13 @@ export default function Login({
         >
           Sign Up
         </button>
+        <Link
+          href="/login/link"
+          className="text-blue-500"
+        >
+          Did you forget your password?
+        </Link>
+        
         {searchParams?.message && (
           <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
             {searchParams.message}

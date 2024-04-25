@@ -40,7 +40,6 @@ export default function SliderPage(){
 
   return(
     <div className="py-14 px-4 block w-full">
-      <h1>Ejemplo</h1>
 
       <Slider
         height={120}

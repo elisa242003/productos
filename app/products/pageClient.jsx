@@ -100,7 +100,7 @@ export default function Products() {
           <a href="/products/add">Agregar</a>
         </button>
          
-        <label htmlFor="categorySelect">Select a category:</label>
+        <label htmlFor="categorySelect"></label>
       <select
         id="categorySelect"
         value={selectedCategory}

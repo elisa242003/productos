@@ -28,6 +28,14 @@ export default async function AuthButton() {
           Logout
         </button>
       </form>
+
+      <Link
+      href="/products"
+      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+    >
+      Products
+    </Link>
+
     </div>
   ) : (
     <Link
